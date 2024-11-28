@@ -1,29 +1,29 @@
-*Multi-Step Form with React & Next.js
+Multi-Step Form with React & Next.js
 
-** Prerequisites
+ Prerequisites
 Node.js (v16 or higher)
 npm (v6 or higher) or yarn (v1.22 or higher)
 
 Getting Started
-** 1. Clone the repository
+ 1. Clone the repository
 
- ** git clone https://github.com/your-username/multi-step-form.git
-** cd multi-step-form
+ git clone https://github.com/your-username/multi-step-form.git
+cd multi-step-form
 2. Install dependencies
 If you're using npm:
 
-** npm install
+npm install
 
 If you're using yarn:
 
-** yarn install
+ yarn install
 
 3. Start the development server
 Run the app locally by using the following command:
 
-** npm run dev
+ npm run dev
 # OR
-** yarn dev
+yarn dev
 Open your browser and go to http://localhost:3000 to view the application.
 
 
