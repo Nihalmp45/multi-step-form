@@ -26,6 +26,7 @@ Run the app locally by using the following command:
  npm run dev
 # OR
 yarn dev
+
 Open your browser and go to http://localhost:3000 to view the application.
 
 
