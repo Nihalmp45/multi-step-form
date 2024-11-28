@@ -7,8 +7,10 @@ npm (v6 or higher) or yarn (v1.22 or higher)
 Getting Started
  1. Clone the repository
 
- git clone https://github.com/your-username/multi-step-form.git
+git clone https://github.com/your-username/multi-step-form.git
+
 cd multi-step-form
+
 2. Install dependencies
 If you're using npm:
 
