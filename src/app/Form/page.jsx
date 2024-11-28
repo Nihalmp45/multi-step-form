@@ -59,7 +59,7 @@ export default function Form() {
       </Stepper>
       {activeStep === steps.length ? (
         <Typography sx={{ mt: 2, mb: 1 }}>
-          All steps completed - you're finished!
+          All steps completed!
         </Typography>
       ) : (
         <Box sx={{ display: "flex", flexDirection: "column", pt: 2 }}>

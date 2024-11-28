@@ -4,9 +4,8 @@ import { Box, Typography, Button } from "@mui/material";
 
 
 
-const ReviewPage = ({ formData,onSubmit }) => {
-  const { step1, step2, step3 } = formData;
-
+const ReviewPage = ({ formData = { step1: {}, step2: {}, step3: {} }, onSubmit }) => {
+    const { step1, step2, step3 } = formData;
 
   return (
     <Box sx={{ width: "75%", marginLeft: "100px", marginTop: "50px" }}>
