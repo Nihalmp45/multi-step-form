@@ -12,7 +12,7 @@ const MainForm1 = ({ defaultValues, saveData }) => {
   });
 
   const { register, control, handleSubmit, formState, reset } = form;
-  const { errors, isDirty, isValid } = formState;
+  const { errors,  isValid } = formState;
 
   // Reset form when defaultValues change (for example, when navigating back to this step)
   useEffect(() => {

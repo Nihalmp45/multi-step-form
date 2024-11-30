@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const MainForm2 = ({ defaultValues, saveData }) => {
@@ -18,21 +18,28 @@ const MainForm2 = ({ defaultValues, saveData }) => {
     console.log(data);
     saveData(data); // Save the form data to the parent component
     toast.success("Thanks! you can proceed to next steps", {
-        position: "top-center"
-      });
+      position: "top-center",
+    });
   };
 
   return (
     <div className="py-4 flex items-center justify-center bg-gray-100 p-4">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
-      <ToastContainer />
+        <ToastContainer />
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           Main Form
         </h2>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className="space-y-6"
+        >
           {/* Country */}
           <div className="form-control">
-            <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="country"
+              className="block text-sm font-medium text-gray-700"
+            >
               Country
             </label>
             <select
@@ -48,12 +55,17 @@ const MainForm2 = ({ defaultValues, saveData }) => {
               <option value="UK">United Kingdom</option>
               <option value="Australia">Australia</option>
             </select>
-            <p className="text-red-500 text-sm mt-1">{errors.country?.message}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.country?.message}
+            </p>
           </div>
 
           {/* Address */}
           <div className="form-control">
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium text-gray-700"
+            >
               Address
             </label>
             <textarea
@@ -68,12 +80,17 @@ const MainForm2 = ({ defaultValues, saveData }) => {
                 },
               })}
             />
-            <p className="text-red-500 text-sm mt-1">{errors.address?.message}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.address?.message}
+            </p>
           </div>
 
           {/* Government ID Upload */}
           <div className="form-control">
-            <label htmlFor="idType" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="idType"
+              className="block text-sm font-medium text-gray-700"
+            >
               Select ID Type
             </label>
             <select
@@ -88,12 +105,18 @@ const MainForm2 = ({ defaultValues, saveData }) => {
               <option value="Passport">Passport</option>
               <option value="DrivingLicense">Driving License</option>
             </select>
-            <p className="text-red-500 text-sm mt-1">{errors.idType?.message}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.idType?.message}
+            </p>
           </div>
 
           {/* File Upload */}
+          {/* File Upload */}
           <div className="form-control">
-            <label htmlFor="govId" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="govId"
+              className="block text-sm font-medium text-gray-700"
+            >
               Upload ID
             </label>
             <input
@@ -104,16 +127,22 @@ const MainForm2 = ({ defaultValues, saveData }) => {
               {...register("govId", {
                 required: { value: true, message: "Government ID is required" },
                 validate: {
-                  fileType: (value) =>
-                    value[0]?.type.match(/image\/(jpeg|png)|application\/pdf/) ||
-                    "File must be an image (jpeg/png) or a PDF",
-                  fileSize: (value) =>
-                    value[0]?.size <= 2 * 1024 * 1024 ||
-                    "File size must not exceed 2MB",
+                  fileType: (files) =>
+                    files?.[0]?.type.match(/image\/(jpeg|png)|application\/pdf/)
+                      ? true
+                      : "File must be an image (jpeg/png) or a PDF",
+                  fileSize: (files) =>
+                    files?.[0]?.size <= 2 * 1024 * 1024
+                      ? true
+                      : "File size must not exceed 2MB",
                 },
               })}
             />
-            <p className="text-red-500 text-sm mt-1">{errors.govId?.message}</p>
+            {/* Display error message */}
+            <p className="text-red-500 text-sm mt-1">
+              {errors.govId?.message ||
+                (errors.govId?.type === "fileType" && "Invalid file type")}
+            </p>
 
             {/* Display file name if uploaded */}
             {form.getValues("govId") && form.getValues("govId")[0]?.name && (
@@ -141,4 +170,3 @@ const MainForm2 = ({ defaultValues, saveData }) => {
 };
 
 export default MainForm2;
-
